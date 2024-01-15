@@ -1,7 +1,73 @@
 <mvc:View controllerName="cmpc.migracion.controller.CadastroCaminhoneiro"
+    xmlns:statusindicator="sap.suite.ui.commons.statusindicator"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+    xmlns:f="sap.f.semantic"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout">
+    <f:SemanticPage id="_IDGenSemanticPage1" showFooter="true">
+        <f:titleHeading title="Caminhoneiros">
+            <Text text="Registro de conductores de camiones" />
+        </f:titleHeading>
+
+        <f:headerContent>
+            <layout:HorizontalLayout allowWrapping="true">
+                <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                    <ObjectAttribute text="Informaciones generales" />
+                </layout:VerticalLayout>
+            </layout:HorizontalLayout>
+        </f:headerContent>
+
+        <f:content>
+            <layout:VerticalLayout>
+                <form:SimpleForm id="_IDGenSimpleForm1"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    title="Cadastro"
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                >
+                    <form:content>
+                        <Label text="Nome Completo" />
+                        <Input id="nome" editable="{editavel>/habilitado}" />
+
+                        <Label text="Transportadora" />
+                        <Input id="trans" editable="{editavel>/habilitado}" />
+
+                        <Label text="Placa" />
+                        <Input id="placa" 
+                            editable="{editavel>/habilitado}" />
+
+                        <!-- <Label text="Termos de Pesquisa 2" />
+                        <Input id="pesquisa2" 
+                            editable="{editavel>/habilitado}" /> -->
+
+                    </form:content>
+                </form:SimpleForm>
+            </layout:VerticalLayout>
+        </f:content>
+
+        <f:footerMainAction>
+            <f:FooterMainAction text="Editar" press="aoEditar"
+                visible="{visibilidade>/visualizacao}" />
+        </f:footerMainAction>
+
+        <f:footerCustomActions>
+            <Button text="Salvar" type="Accept " visible="{visibilidade>/edicao}" press="onSalvar" />
+            <Button text="Cancelar" type="Reject" visible="{visibilidade>/edicao}"
+                press="onCancelar" />
+        </f:footerCustomActions>
+
+    </f:SemanticPage>
 </mvc:View>
